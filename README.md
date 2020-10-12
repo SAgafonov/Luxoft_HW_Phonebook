@@ -19,7 +19,7 @@ Use folder `tests`
 Install requirements:  
 `pip install -r requirements.txt`  
 Tests without a report:  
-`pytest <path_to_project_tests_folder>\test_phone_book.py` -- Windows 
+`pytest <path_to_project_tests_folder>\test_phone_book.py` -- Windows  
 `pytest <path_to_project_tests_folder>/test_phone_book.py` -- Linux  
 Tests with a report:  
 `pytest --html=report.html <path_to_project_tests_folder>\test_phone_book.py` -- Windows   
