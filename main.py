@@ -144,7 +144,7 @@ def represent_checkboxes(contacts: list):
 
 # Tabs on main window
 window.title("Phone book")
-window.geometry("350x350+700+300")
+window.geometry("400x350+700+300")
 tab_control = ttk.Notebook(window)
 tab_add_contact = ttk.Frame(tab_control)
 tab_find_contact = ttk.Frame(tab_control)
