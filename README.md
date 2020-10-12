@@ -13,7 +13,7 @@ Make sure the you have installed Python 3.8 or higher.
 Clone the project.  
 Install requirements:  
 `pip install -r requirements.txt`  
-To run application execute  
+To run application execute:  
 `python <path_to_project_root_folder>\main.py` -- Windows  
 `python3 <path_to_project_root_folder>/main.py` -- Linux
 ### Running tests
