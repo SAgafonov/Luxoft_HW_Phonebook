@@ -17,11 +17,11 @@ To run application execute:
 `python <path_to_project_root_folder>\main.py` -- Windows  
 `python3 <path_to_project_root_folder>/main.py` -- Linux
 ### Running tests
-Use folder `tests` 
-Tests without a report:  
+Use folder `tests`  
+Execute tests without a report:  
 `pytest <path_to_project_tests_folder>\test_phone_book.py` -- Windows  
 `pytest <path_to_project_tests_folder>/test_phone_book.py` -- Linux  
-Tests with a report - report.html will be generated in a current directory:  
+Execute tests with a report - report.html will be generated in a current directory:  
 `pytest --html=report.html <path_to_project_tests_folder>\test_phone_book.py` -- Windows   
 `pytest --html=report.html <path_to_project_tests_folder>/test_phone_book.py` -- Linux
  
