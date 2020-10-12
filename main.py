@@ -36,7 +36,7 @@ def add_contact():
     logger.debug(f"Check if name {contact_name} and phone {contact_phone} correct")
     if not pb.name_is_correct(contact_name.strip(" ")):
         logger.debug("Name is incorrect")
-        messagebox.showwarning("Warning", "Check 'Name' it shouldn't be empty, max length is 255 chars")
+        messagebox.showwarning("Warning", "Check 'Name' it shouldn't be empty, max length is 20 chars")
     elif not pb.phone_is_correct(contact_phone.strip(" ")):
         logger.debug("Phone is incorrect")
         messagebox.showwarning("Warning", "Check 'Phone' it shouldn't be empty and must include numbers only, "
@@ -61,17 +61,12 @@ def find_contact():
     logger.debug(f"Check if name {contact_name_to_find} is correct")
     if not pb.name_is_correct(contact_name_to_find.strip(" ")):
         logger.debug("Name is incorrect")
-        messagebox.showwarning("Warning", "Check 'Name' it shouldn't be empty, max length is 255 chars")
+        messagebox.showwarning("Warning", "Check 'Name' it shouldn't be empty, max length is 20 chars")
     else:
         logger.debug("Name is correct. Find contact.")
         result = pb.find_contact(contact_name_to_find.strip(" ").replace("'", "''"))
         if len(result):
             represent_checkboxes(result)
-        # for item in result:
-        #     chk_box = ttk.Checkbutton(contacts_frame, text=f"Name: {item[1]}, Phone: {item[2]}")
-        #     chk_box.grid()
-        #     check_box_list.append(chk_box)
-        #     id_to_check_box[item[0]] = chk_box
             find_name_entry.delete(0, tk.END)
         else:
             logger.debug(f"Contact {contact_name_to_find} not found")
@@ -149,7 +144,7 @@ def represent_checkboxes(contacts: list):
 
 # Tabs on main window
 window.title("Phone book")
-# window.iconbitmap("icons/icon.ico")
+window.iconbitmap("icons/icon.ico")
 window.geometry("350x350+700+300")
 tab_control = ttk.Notebook(window)
 tab_add_contact = ttk.Frame(tab_control)
@@ -189,8 +184,3 @@ show_all_button.grid(column=1, row=4, padx=10, rowspan=2)
 # Run
 tab_control.pack(expand=1, fill='both')
 window.mainloop()
-
-
-# https://coderoad.ru/17466561/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-tkinter
-# https://pythonru.com/uroki/obuchenie-python-gui-uroki-po-tkinter
-# https://ru.stackoverflow.com/questions/885677/%D0%92%D1%82%D0%BE%D1%80%D0%BE%D0%B5-%D0%BE%D0%BA%D0%BD%D0%BE-tkinter

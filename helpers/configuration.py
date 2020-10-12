@@ -14,6 +14,10 @@ PATH_TO_DB = str(__CURRENT_DIRECTORY) + os.sep + ".." + os.sep + "db" + os.sep +
 
 
 def check_if_dir_exists():
+    """
+    Check if folders fo logs and DB exists, create folders if don't.
+    :return:
+    """
     if not os.path.exists(str(__CURRENT_DIRECTORY) + os.sep + ".." + os.sep + "logs"):
         try:
             os.mkdir(str(__CURRENT_DIRECTORY) + os.sep + ".." + os.sep + "logs")

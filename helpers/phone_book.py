@@ -111,6 +111,3 @@ class PhoneBook:
             return "Contacts were deleted"
         else:
             return None
-
-
-# https://www.python-course.eu/python3_properties.php

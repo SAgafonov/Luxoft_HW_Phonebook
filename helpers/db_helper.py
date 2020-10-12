@@ -70,16 +70,3 @@ class MyDb:
             return result
         except sql.Error as e:
             logger.error(f"Error '{e}' while executing {query}")
-
-
-# dbi = MyDb()
-# # dbi.create_table()
-# ids = (1, 2)
-# ins_q = "INSERT INTO phone_book (name, phone_number) VALUES ('test3', 434);"
-# sel_q = "SELECT * FROM phone_book;"
-# del_q = f"DELETE FROM phone_book;"
-# # dbi.execute_query(ins_q)
-# # dbi.execute_query(del_q)
-# print(dbi.execute_read_query(sel_q))
-
-# https://proglib.io/p/kak-podruzhit-python-i-bazy-dannyh-sql-podrobnoe-rukovodstvo-2020-02-27
