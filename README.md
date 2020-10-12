@@ -21,7 +21,7 @@ Install requirements:
 Tests without a report:  
 `pytest <path_to_project_tests_folder>\test_phone_book.py` -- Windows  
 `pytest <path_to_project_tests_folder>/test_phone_book.py` -- Linux  
-Tests with a report:  
+Tests with a report - report.html will be generated in a current directory:  
 `pytest --html=report.html <path_to_project_tests_folder>\test_phone_book.py` -- Windows   
 `pytest --html=report.html <path_to_project_tests_folder>/test_phone_book.py` -- Linux
  
