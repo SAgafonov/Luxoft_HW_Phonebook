@@ -9,7 +9,7 @@ one for searching, deleting and getting all contacts.
 **Name** field - any string, including symbols. May contain spaces. Max length 20 chars.  
 To delete contact(-s) you need to find at least one, check appropriate check-box and push "Delete" button.
 ### Getting started
-Make sure the you have installed Python 3.8.5 or higher.  
+Make sure the you have installed Python 3.8 or higher.  
 Clone the project.  
 To run application execute  
 `python <path_to_project_root_folder>\main.py` -- Windows  
@@ -19,9 +19,9 @@ Use folder `tests`
 Install requirements:  
 `pip install -r requirements.txt`  
 Tests without a report:  
-`python <path_to_project_tests_folder>\test_phone_book.py` -- Windows 
-`python <path_to_project_tests_folder>/test_phone_book.py` -- Linux  
+`pytest <path_to_project_tests_folder>\test_phone_book.py` -- Windows 
+`pytest <path_to_project_tests_folder>/test_phone_book.py` -- Linux  
 Tests with a report:  
-`python --html=report.html <path_to_project_tests_folder>\test_phone_book.py` -- Windows   
-`python --html=report.html <path_to_project_tests_folder>/test_phone_book.py` -- Linux
+`pytest --html=report.html <path_to_project_tests_folder>\test_phone_book.py` -- Windows   
+`pytest --html=report.html <path_to_project_tests_folder>/test_phone_book.py` -- Linux
  
