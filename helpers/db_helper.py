@@ -39,10 +39,10 @@ class MyDb:
             phone_number INTEGER NOT NULL);
             """)
             self.__connection.commit()
-            return 0
+            return 1
         except sql.Error as e:
             logger.error(f"Error '{e}' on table creation")
-            return 1
+            return 0
 
     def execute_query(self, query: str):
         """
@@ -53,10 +53,10 @@ class MyDb:
         try:
             self.__cursor.execute(query)
             self.__connection.commit()
-            return 0
+            return 1
         except sql.Error as e:
             logger.error(f"Error '{e}' while executing {query}")
-            return 1
+            return 0
 
     def execute_read_query(self, query: str) -> list:
         """

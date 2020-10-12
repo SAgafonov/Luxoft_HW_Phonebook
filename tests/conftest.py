@@ -14,12 +14,12 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="class")
 def my_db():
     return MyDb()
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="class")
 def phone_book():
     return PhoneBook()
 
@@ -29,13 +29,30 @@ def create_contacts(my_db):
     logger.debug("Execute INSERT from fixture")
     query = """
             INSERT INTO phone_book (name, phone_number) 
-            VALUES ('John', 123);
+            VALUES ('John', 123), ('Петр Иванов', 5434563);
+            """
+    my_db.execute_query(query)
+
+
+@pytest.fixture()
+def create_contacts_function_scope(my_db):
+    logger.debug("Execute INSERT from fixture")
+    query = """
+            INSERT INTO phone_book (name, phone_number) 
+            VALUES ('John', 123), ('Петр Иванов', 5434563);
             """
     my_db.execute_query(query)
 
 
 @pytest.fixture(scope="class")
 def del_contacts(my_db):
+    logger.debug("Execute DELETE from fixture")
+    query = f"""DELETE FROM phone_book;"""
+    my_db.execute_query(query)
+
+
+@pytest.fixture()
+def del_contacts_function_scope(my_db):
     logger.debug("Execute DELETE from fixture")
     query = f"""DELETE FROM phone_book;"""
     my_db.execute_query(query)

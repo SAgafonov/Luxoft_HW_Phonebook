@@ -5,6 +5,7 @@ from tkinter import messagebox
 from helpers.phone_book import PhoneBook
 from helpers.configuration import PATH_TO_APP_LOGS
 
+
 # Configure general settings for logs
 logging.basicConfig(
     level=logging.DEBUG,
@@ -148,8 +149,8 @@ def represent_checkboxes(contacts: list):
 
 # Tabs on main window
 window.title("Phone book")
-window.iconbitmap("icons/icon.ico")
-window.geometry("300x300+700+300")
+# window.iconbitmap("icons/icon.ico")
+window.geometry("350x350+700+300")
 tab_control = ttk.Notebook(window)
 tab_add_contact = ttk.Frame(tab_control)
 tab_find_contact = ttk.Frame(tab_control)

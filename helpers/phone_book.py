@@ -1,5 +1,5 @@
 import logging
-from typing import Tuple, Union
+from typing import Tuple, Union, List
 from helpers.db_helper import MyDb
 
 logger = logging.getLogger(__name__)
@@ -13,12 +13,12 @@ class PhoneBook:
     @staticmethod
     def name_is_correct(name: str) -> bool:
         """
-        Check if len of provided name is in range (0, 255].
+        Check if len of provided name is in range (0, 20].
         :param name: str
         :return: bool
         """
         logger.debug("Check if name is correct")
-        return 0 < len(name) < 256
+        return 0 < len(name) < 21
 
     @staticmethod
     def phone_is_correct(phone: str) -> bool:
@@ -54,7 +54,7 @@ class PhoneBook:
         """
         if not self.phone_exists(phone):
             logger.debug(f"Try to save contact {name}, {phone}")
-            if not self.__db.execute_query(query):
+            if self.__db.execute_query(query):
                 logger.debug(f"Contact {name}, {phone} saved")
                 return "Data saved"
             else:
@@ -63,11 +63,11 @@ class PhoneBook:
             logger.debug(f"Contact with {phone} already exists")
             return f"Phone {str(phone)} already exists"
 
-    def find_contact(self, name: str) -> list:
+    def find_contact(self, name: str) -> List[Tuple[Union[int, str]]]:
         """
         Search for a provided contact.
         :param name: str
-        :return: list
+        :return: List[Tuple[Union[int, str]]]
         """
         query = f"""SELECT * FROM phone_book WHERE name LIKE '%{name}%';"""
         logger.debug(f"Search {name}")
@@ -92,7 +92,7 @@ class PhoneBook:
         """
         query = f"""DELETE FROM phone_book WHERE id = {idx}"""
         logger.debug(f"Delete contact with id: {idx}")
-        if not self.__db.execute_query(query):
+        if self.__db.execute_query(query):
             return "Contact was deleted"
         else:
             return None
@@ -107,7 +107,7 @@ class PhoneBook:
         """
         query = f"""DELETE FROM phone_book WHERE id IN {ids}"""
         logger.debug(f"Delete contacts with ids: {ids}")
-        if not self.__db.execute_query(query):
+        if self.__db.execute_query(query):
             return "Contacts were deleted"
         else:
             return None
